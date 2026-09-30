@@ -199,14 +199,38 @@
       margin-bottom: 32px;
     }
 
+    .year-group {
+      margin: 0;
+    }
+
     .yr {
+      list-style: none;
+      cursor: pointer;
       font-size: 26px;
       font-weight: 700;
       color: var(--mute);
-      margin: 32px 0 16px;
+      margin: 28px 0 16px;
       letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      user-select: none;
+      transition: color 0.2s;
     }
-    .yr:first-of-type { margin-top: 0; }
+
+    .yr::-webkit-details-marker { display: none; }
+    .yr::before {
+      content: '›';
+      display: inline-block;
+      width: 18px;
+      font-size: 30px;
+      line-height: 1;
+      transition: transform 0.2s ease;
+    }
+
+    .year-group[open] > .yr { color: var(--text); }
+    .year-group[open] > .yr::before { transform: rotate(90deg); }
+    .yr:hover { color: var(--green); }
 
     /* Paper Entry Grid */
     .p {
@@ -329,13 +353,14 @@
   <section id="publications">
     <div class="sec-title">Publications</div>
 
-    <div class="yr">2026</div>
-    <div class="p">
+    <details class="year-group" open>
+      <summary class="yr">2026</summary>
+      <div class="p">
       <div class="p-img"><img src="images/GLD.png" alt="Repurposing Geometric"></div>
       <div class="p-info">
         <div class="p-t"><a href="https://arxiv.org/abs/2603.22275" target="_blank">Repurposing Geometric Foundation Models for Multi-view Diffusion</a></div>
         <div class="p-a"><span class="me">Wooseok Jang</span>, Seonghu Jeon, Jisang Han, Jinhyeok Choi, Minkyung Kwon, Seungryong Kim, Saining Xie, and Sainan Liu</div>
-        <div class="p-m"><span class="v x">arXiv 2026</span> <a class="pl" href="https://arxiv.org/abs/2603.22275" target="_blank">paper</a> <a class="pl" href="https://cvlab-kaist.github.io/GLD/" target="_blank">project</a></div>
+        <div class="p-m"><span class="v">ECCV 2026 · Oral</span> <a class="pl" href="https://arxiv.org/abs/2603.22275" target="_blank">paper</a> <a class="pl" href="https://cvlab-kaist.github.io/GLD/" target="_blank">project</a></div>
       </div>
     </div>
     <div class="p">
@@ -361,10 +386,12 @@
         <div class="p-a">Donghoon Ahn*, Jiwon Kang*, Sanghyun Lee, Jaewon Min, Minjae Kim, <span class="me">Wooseok Jang</span>, Hyoungwon Cho, Sayak Paul, SeonHwa Kim, Eunju Cha, Kyong Hwan Jin, and Seungryong Kim</div>
         <div class="p-m"><span class="v">ICLR 2026</span> <a class="pl" href="https://arxiv.org/abs/2412.03895" target="_blank">paper</a> <a class="pl" href="https://cvlab-kaist.github.io/NoiseRefine/" target="_blank">project</a></div>
       </div>
-    </div>
+      </div>
+    </details>
 
-    <div class="yr">2025</div>
-    <div class="p">
+    <details class="year-group">
+      <summary class="yr">2025</summary>
+      <div class="p">
       <div class="p-img"><img src="images/deep.png" alt="Deep Forcing"></div>
       <div class="p-info">
         <div class="p-t"><a href="https://cvlab-kaist.github.io/DeepForcing/" target="_blank">Deep Forcing: Training-Free Long Video Generation with Deep Sink and Participative Compression</a></div>
@@ -403,10 +430,12 @@
         <div class="p-a">Gyuseong Lee*, <span class="me">Wooseok Jang*</span>, Jin Hyeon Kim, Jaewoo Jung, and Seungryong Kim</div>
         <div class="p-m"><span class="v">WACV 2025</span> <a class="pl" href="https://arxiv.org/abs/2310.11031" target="_blank">paper</a></div>
       </div>
-    </div>
+      </div>
+    </details>
 
-    <div class="yr">2024</div>
-    <div class="p">
+    <details class="year-group">
+      <summary class="yr">2024</summary>
+      <div class="p">
       <div class="p-img"><img src="images/pag.png" alt="PAG"></div>
       <div class="p-info">
         <div class="p-t"><a href="https://cvlab-kaist.github.io/Perturbed-Attention-Guidance/" target="_blank">Self-Rectifying Diffusion Sampling with Perturbed-Attention Guidance</a></div>
@@ -429,10 +458,12 @@
         <div class="p-a">Junyoung Seo*, <span class="me">Wooseok Jang*</span>, Min-Seop Kwak*, Jaehoon Ko, Hyeonsu Kim, Junho Kim, Jin-Hwa Kim, Jiyoung Lee, and Seungryong Kim</div>
         <div class="p-m"><span class="v">ICLR 2024</span> <a class="pl" href="https://arxiv.org/abs/2303.07937" target="_blank">paper</a> <a class="pl" href="https://cvlab-kaist.github.io/3DFuse/" target="_blank">project</a></div>
       </div>
-    </div>
+      </div>
+    </details>
 
-    <div class="yr">2023</div>
-    <div class="p">
+    <details class="year-group">
+      <summary class="yr">2023</summary>
+      <div class="p">
       <div class="p-img"><img src="images/caption.png" alt="Image Editing"></div>
       <div class="p-info">
         <div class="p-t">User-friendly Image Editing with Minimal Text Input: Leveraging Captioning and Injection Techniques</div>
@@ -455,7 +486,8 @@
         <div class="p-a">Gyeongnyeon Kim*, <span class="me">Wooseok Jang*</span>, Gyuseong Lee*, Susung Hong, Junyoung Seo, and Seungryong Kim</div>
         <div class="p-m"><span class="v j">Pattern Recognition</span> <a class="pl" href="https://arxiv.org/abs/2212.08861" target="_blank">paper</a></div>
       </div>
-    </div>
+      </div>
+    </details>
   </section>
 
   <section id="experience">
